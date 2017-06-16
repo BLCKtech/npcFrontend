@@ -1,9 +1,9 @@
-# Angular Docker Boilerplate [![Circle CI](https://circleci.com/gh/dciccale/angular-docker-boilerplate.svg?style=svg)](https://circleci.com/gh/dciccale/angular-docker-boilerplate) [![Coverage Status](https://coveralls.io/repos/dciccale/angular-docker-boilerplate/badge.svg?branch=master&service=github)](https://coveralls.io/github/dciccale/angular-docker-boilerplate?branch=master)
+# NPC front end
 
 ## Installation
 
 ```bash
-$ git clone --recursive git://github.com/dciccale/angular-docker-boilerplate.git
+$ git clone --recursive https://github.com/BLCKtech/npcFrontend.git
 $ git submodule foreach npm install
 $ [sudo] make install
 ```
