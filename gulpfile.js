@@ -154,7 +154,7 @@ gulp.task('serve', ['clean', 'build'], function () {
   .once('start', function () {
     browserSync({
       proxy: 'localhost:' + config.port,
-      port: 3000
+      port: 3010
     });
   });
 

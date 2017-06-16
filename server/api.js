@@ -16,7 +16,11 @@ module.exports = function (app, config) {
   });
 
   app.all('/api/*', function (req, res) {
+    console.log('hello ' + req)
     req.url = req.url.replace(/\/api/, '');
     apiProxy.web(req, res, {target: config.api.uri});
   });
+  // app.route('/api/hello').get(function (req, res) {
+  //   res.send('hello world this is me')
+  // });
 };

@@ -8,10 +8,12 @@
   AuthService.$inject = ['$http', 'User', '$cookies', '$q'];
 
   function AuthService($http, User, $cookies, $q) {
-    var currentUser = {};
+    
 
     if ($cookies.get('token')) {
       currentUser = User.get();
+    } else {
+      var currentUser = {};
     }
 
     var service = {
@@ -23,10 +25,18 @@
       isLoggedIn: isLoggedIn,
       isLoggedInAsync: isLoggedInAsync,
       isAdmin: isAdmin,
-      getToken: getToken
+      getToken: getToken,
+      getAllUsers: getAllUsers
     };
 
     return service;
+
+    /**
+     * Get all users
+     */
+    function getAllUsers() {
+      return $http.get('/api/users')
+    }
 
     /**
      * Authenticate user and save token

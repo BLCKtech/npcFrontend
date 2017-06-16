@@ -10,7 +10,7 @@
     <meta name="author", content="">
 
     <base href="/">
-    <title>Angular Docker Boilerplate</title>
+    <title>NPC PoC</title>
 
     <link rel="shortcut icon" href="favicon.ico">
 
@@ -26,14 +26,16 @@
     <ui-view></ui-view>
 
     <!-- inject:vendor:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/numeral/numeral.js"></script>
     <script src="bower_components/numeral/languages.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
     <!-- endinject -->
 
     <!-- inject:js -->
@@ -43,12 +45,15 @@
     <script src="app/account/account.routes.js"></script>
     <script src="app/admin/admin.controller.js"></script>
     <script src="app/admin/admin.routes.js"></script>
+    <script src="app/createNpc/createNpc.controller.js"></script>
     <script src="app/main/main.controller.js"></script>
     <script src="app/main/main.routes.js"></script>
+    <script src="app/signNpc/signNpc.controller.js"></script>
     <script src="components/auth/auth-interceptor.service.js"></script>
     <script src="components/auth/auth.service.js"></script>
     <script src="components/auth/user.service.js"></script>
     <script src="components/autofocus/autofocus.directive.js"></script>
+    <script src="components/blockchain/blockchain.service.js"></script>
     <script src="components/mongoose-error/mongoose-error.directive.js"></script>
     <script src="components/navbar/navbar.controller.js"></script>
     <script src="app/account/forgot/forgot.controller.js"></script>
