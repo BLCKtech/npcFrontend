@@ -11,23 +11,40 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
+      <h3>Documents</h3>
       <div ng-repeat="(id, npcDoc) in npcDocsToBeSignedByUser">
         <a href="#" class="btn sign-npc-listitem" ng-click="$parent.chosenNpcIndex = id">{{npcDoc.header}}</a>
       </div>
     </div>
     <div class="col-sm-8">
-      <row>
-        <div ng-repeat="(userId, signee) in npcDocsToBeSignedByUser[chosenNpcIndex].signees">
-          <div class={{getCssClass(signee.hasSigned)}}>{{signee.signee.name}}</div>
-        </div>
-      </row>
-      <row>
-        <h3>{{npcDocsToBeSignedByUser[chosenNpcIndex].header}}</h3>
-        <div id="npcdocText"></div>
-        <div class="pull-right">
-          <button class="btn sign-npc-btn" ng-click="signDocument()">Sign</button>
-        </div>
-      </row>
+      <h3>{{npcDocsToBeSignedByUser[chosenNpcIndex].header}}</h3>
+      <div id="npcdocText"></div>
+      <button class="btn sign-npc-btn" ng-click="signDocument()">Sign</button>
+      <h4>Signature statuses</h4>
+      <table class="signees-table">
+        <tr>
+          <th>Signee</th>
+          <th>Has signed</th>
+        </tr>
+        <tr ng-repeat="(userId, signee) in npcDocsToBeSignedByUser[chosenNpcIndex].signees">
+          <td class="signees-td">{{signee.signee.name}}</td>
+          <td class="signees-td">{{signee.hasSigned ? 'Successfully signed' : ''}}</td>
+        </tr>
+      </table>
+      <h4>Comment section</h4>
+      <textarea type="string"
+                class="form-control"
+                ng-model="signeeComment"
+                required></textarea>
+      <button class="btn comment-npc-btn"
+              ng-click="comment()">
+        Comment
+      </button>
+      <div ng-repeat="(_id, comment) in npcDocsToBeSignedByUser[chosenNpcIndex].comments">
+        <div class="signee-commentator">{{comment.commentator.name}}</div>
+        <div class="signee-comment">{{comment.comment}}</div>
+        <div class="comment-date">{{comment.datetime}}</div>
+      </div>
     </div>
     </div>
   </div>

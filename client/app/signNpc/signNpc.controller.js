@@ -10,6 +10,8 @@
   function SignNpcCtrl($scope, BlockchainService, $window) {
     $scope.appName = 'NPC PoC';
     $scope.npcdocElem = $window.document.getElementById('npcdocText')
+    // $scope.npcdocElem.innerHTML = 
+    $scope.signeeComment = ''
     
     function getDocs(chosenNpcIndex) {  
       BlockchainService
@@ -17,6 +19,9 @@
       .then(function(npcDocsToBeSignedByUser) {
         var npcDocsById = {}
         npcDocsToBeSignedByUser.forEach(function(npcDoc) {
+          npcDoc.comments.sort(function(a,b){
+            return new Date(b.datetime) - new Date(a.datetime);
+          });
           npcDocsById[npcDoc._id] = npcDoc
         })
         $scope.npcDocsToBeSignedByUser = npcDocsById
@@ -52,6 +57,19 @@
     function getCssClass(hasSigned) {
       if (hasSigned) {return "has-signed"}
       else {return "has-not-signed"}
+    }
+    $scope.comment = comment
+    function comment() {
+      console.log('saving comment', $scope.signeeComment)
+      BlockchainService
+      .commentDocument($scope.signeeComment, $scope.chosenNpcIndex)
+      .then(function(res) {
+        console.log(res)
+        getDocs($scope.chosenNpcIndex)
+      })
+      .catch(function(err) {
+        console.log(err)
+      })
     }
   }
 

@@ -12,7 +12,8 @@
       getNpcDocsForUser: getNpcDocsForUser,
       createNpc: createNpc,
       signDocument: signDocument,
-      blockchainTest: blockchainTest
+      blockchainTest: blockchainTest,
+      commentDocument: commentDocument
     };
 
     return service;
@@ -20,11 +21,9 @@
     function getNpcDocsForUser() {
       return $q(function(resolve, reject) {
         User.get().$promise.then(function(currentUser) {
-          console.log(currentUser._id)
           return $http.get('/api/blockchain/npcdoc/' + currentUser._id)
         })
         .then(function(res) {
-          console.log(res)
           resolve(res.data)
         }, function(err) {
           console.log(err)
@@ -51,6 +50,22 @@
         .then(function(res) {
           resolve(res.data)
         }, function(err) {
+          console.log(err)
+        }.bind(this))
+      })
+    }
+
+    function commentDocument(signeeComment, npcDocId) {
+      return $q(function(resolve, reject) {
+        User.get().$promise.then(function(currentUser) {
+          return $http
+            .post('/api/blockchain/npcdoc/comment/' + npcDocId + '/' + currentUser._id,
+            {comment: signeeComment})
+        })
+        .then(function(res) {
+          resolve(res)
+        })
+        .catch(function(err) {
           console.log(err)
         }.bind(this))
       })

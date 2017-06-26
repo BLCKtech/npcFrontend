@@ -27,9 +27,11 @@
       if (form.$valid) {
         BlockchainService.createNpc($scope.npc)
         .then(function(response) {
+          alert('NPC document created')
           console.log(response)
         })
         .catch(function(err) {
+          alert('Something went wrong creating the NPC, please try again')
           console.log(err)
         })
       }

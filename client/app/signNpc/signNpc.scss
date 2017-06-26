@@ -5,6 +5,8 @@
 }
 .sign-npc-btn {
 	background-color: #04ef18;
+	margin-bottom: 5px;
+	margin-top: 5px;
 }
 
 .has-signed {
@@ -18,4 +20,33 @@
 	text-align: center;
 	border-radius: 5px;
 	margin-bottom: 5px;
+}
+.comment-npc-btn {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+.comment-npc-container {
+	margin-bottom: 100px;
+}
+.signee-comment {
+	background-color: #135ca4;
+	margin: 0px 0px 0px 0px;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+}
+.signee-commentator {
+	margin: 5px 0px 1px 0px;
+}
+.comment-date {
+	font-size: 0.7em;
+	margin-bottom: 10px;
+}
+.signees-table {
+	width: 100%;
+}
+tr:nth-child(even) {
+    background-color: #135ca4;
+}
+.signees-td {
+	padding: 5px 5px 5px 5px;
 }
